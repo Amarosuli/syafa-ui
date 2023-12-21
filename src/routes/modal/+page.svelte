@@ -28,7 +28,7 @@
 	</Modal.Content>
 </Modal.Root>
 
-<div class="flex flex-col items-center justify-center gap-4">
+<div class="container mx-auto flex flex-col items-center justify-center gap-4">
 	<Button variant={['ghost', 'outline', 'rounded']} collor="ghost" modalName="modal_1">Modal 1</Button>
 	<Button variant={['ghost', 'outline', 'rounded']} collor="ghost" modalName="modal_2">Modal 2</Button>
 </div>

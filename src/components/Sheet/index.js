@@ -1,3 +1,5 @@
+import './style.scss'
+
 export { default as Root } from './Sheet.svelte';
 export { default as Close } from './SheetClose.svelte';
 export { default as Title } from './SheetTitle.svelte';

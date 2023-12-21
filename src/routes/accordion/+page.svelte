@@ -2,4 +2,4 @@
 	import { Accordion } from '@components';
 </script>
 
-Belum di bikin, waiting list...
+<div class="container mx-auto flex justify-center">Belum di bikin, waiting list...</div>

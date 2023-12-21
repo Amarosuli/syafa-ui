@@ -1,0 +1,38 @@
+/* Modal */
+.modal {
+	@apply fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center overflow-hidden;
+
+	&.overlay {
+		@apply bg-background/70 backdrop-blur;
+	}
+	.content {
+		@apply relative flex min-w-[400px] flex-col gap-2 rounded-xl border border-foreground/10 bg-background px-5 py-4 text-foreground shadow-lg;
+
+		.header {
+			@apply flex w-full items-center justify-between;
+
+			.text-wrapper {
+				@apply flex flex-col gap-1;
+			}
+
+			.close-button {
+				@apply absolute right-0 top-0 mr-5 mt-4 rounded p-1 active:bg-foreground/10;
+			}
+
+			.title {
+				@apply font-bold;
+			}
+
+			.description {
+				@apply text-sm text-foreground/70;
+			}
+		}
+
+		.footer {
+			@apply mt-auto flex w-full justify-end;
+		}
+	}
+	.default {
+		@apply h-1/4 max-w-[500px];
+	}
+}

@@ -5,7 +5,7 @@
 	let sides: sheetSide[] = ['left', 'right', 'top', 'bottom'];
 </script>
 
-<div class="grid grid-cols-2 grid-rows-2 gap-4">
+<div class="container mx-auto grid w-max grid-cols-2 grid-rows-2 gap-4">
 	{#each sides as side}
 		<Sheet.Root>
 			<Sheet.Trigger let:sheet>

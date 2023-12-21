@@ -31,7 +31,7 @@
 	<!-- <Field.Switch on:change={toggle} bind:checked value={{ onTrue: Sun, onFalse: MoonStar }} /> -->
 	<!-- <Field.Switch on:change={toggle} bind:checked value={{ onTrue: 'light', onFalse: 'dark' }} /> -->
 	<Field.Switch on:change={toggle} bind:checked>
-		{#if checked}
+		{#if !checked}
 			<Sun size="15" />
 		{:else}
 			<MoonStar size="15" />

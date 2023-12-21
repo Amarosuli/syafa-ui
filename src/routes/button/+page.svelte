@@ -54,7 +54,7 @@
 		@apply text-xl font-semibold;
 	}
 	.group {
-		@apply flex w-full flex-col gap-4;
+		@apply flex w-full flex-col;
 	}
 
 	.item {

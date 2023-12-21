@@ -1,0 +1,20 @@
+/* Tabs */
+.tabs {
+	@apply flex w-[400px] flex-col gap-2;
+
+	.trigger {
+		@apply flex h-10 select-none items-center justify-center gap-2 border border-b px-5 py-3 text-sm font-semibold transition-all ease-out;
+
+		&.select {
+			@apply border border-b-black bg-foreground/10;
+		}
+	}
+
+	.tab-list {
+		@apply grid grid-flow-col border border-foreground/10;
+	}
+
+	.content {
+		@apply border border-foreground/10 px-5 py-3;
+	}
+}

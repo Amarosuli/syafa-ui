@@ -1,3 +1,5 @@
+import './style.scss'
+
 export { default as Root } from './Modal.svelte';
 export { default as Header } from './ModalHeader.svelte';
 export { default as Action } from './ModalAction.svelte';

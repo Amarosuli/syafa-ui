@@ -1,0 +1,22 @@
+/* Button */
+.btn {
+	/* @apply flex select-none items-center justify-center gap-2 font-semibold transition-all ease-out  active:scale-[.97]; */
+	/* @apply flex select-none items-center justify-center gap-2 font-semibold transition-all ease-out  active:translate-y-1; */
+	@apply flex select-none items-center justify-center gap-2 align-middle font-bold tracking-wider transition-all ease-out;
+
+	&.default {
+		@apply h-10 px-5 py-3 text-sm;
+	}
+	&.smaller {
+		@apply h-9 px-4 py-2 text-xs;
+	}
+	&.bigger {
+		@apply h-11 px-6 py-4 text-base;
+	}
+	&.full {
+		@apply w-full;
+	}
+	&.icon {
+		@apply h-10 w-10;
+	}
+}

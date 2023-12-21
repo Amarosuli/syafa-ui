@@ -1,6 +1,5 @@
 <script>
 	import '../app.postcss';
-	import '@components/component.style.scss';
 	// import { onMount } from 'svelte';
 
 	import { page } from '$app/stores';
@@ -25,18 +24,20 @@
 	// themeInit();
 	// console.log($page.route.id);
 	// });
+
+	$: console.log($page.url.pathname);
 </script>
 
 <div class="fixed z-50 flex w-full flex-col items-center justify-center bg-green pb-2 pt-4 text-center text-green-foreground">
-	<a href="/" class="text-3xl font-bold">Syafa UI</a>
-	<p class="text-xs">
-		Visit to the <a href="https://github.com/Amarosuli" class="underline">Github</a> to give a star.
+	<a href="/" class="text-4xl font-extrabold">Syafa UI</a>
+	<p class="pt-1 text-xs">
+		Visit to the <a href="https://github.com/Amarosuli" class="font-bold underline">Github</a> to give a star.
 	</p>
 
 	<ThemeToggler>Toggle Theme</ThemeToggler>
 </div>
 
-<div class="relative flex w-full flex-col items-center justify-center bg-background pb-6 pt-40 transition-colors duration-500 ease-in">
+<div class="relative flex w-full flex-col items-center justify-center pb-6 pt-36 font-sans transition-colors duration-500 ease-in">
 	<Sheet.Root>
 		<Sheet.Trigger let:sheet>
 			<div class="fixed bottom-10 right-0 z-50 xl:hidden">
@@ -52,7 +53,7 @@
 				{#each navbarLink as { href, title }}
 					<Button
 						on:click={() => goto(href)}
-						class="flex w-full items-center justify-start border-b p-2 text-2xs text-secondary-foreground first:border-t hover:bg-secondary {`${$page.route.id === href && 'bg-secondary'}`}"
+						class="flex w-full items-center justify-start border-b p-2 text-2xs text-secondary-foreground first:border-t hover:bg-secondary {`${$page.url.pathname === href && 'bg-secondary'}`}"
 						>{title}</Button>
 				{/each}
 			</div>
@@ -63,39 +64,15 @@
 		</Sheet.Content>
 	</Sheet.Root>
 
-	<div class="left-0 top-0 hidden h-full w-max flex-col items-start gap-2 overflow-auto p-4 pt-36 xl:fixed xl:flex">
-		{#each navbarLink as { href, title }}
-			<Link {href} active={$page.route.id === href}>{title}</Link>
-		{/each}
-	</div>
-
-	<div class="container mx-auto">
-		<slot />
+	<div class="flex w-full justify-start">
+		<section class="w-ful fixed hidden h-full w-48 max-w-lg flex-col flex-nowrap items-start overflow-auto border-r border-slate-300/70 p-4 sm:flex">
+			{#each navbarLink as { href, title }}
+				<Link {href} active={$page.route.id === href} classes="!text-slate-700">{title}</Link>
+			{/each}
+		</section>
+		<section class="flex w-max sm:w-48 sm:flex-shrink-0"></section>
+		<section class="dark:dark container mx-5 mt-5 max-w-5xl rounded-lg bg-background p-6 text-foreground shadow sm:mx-12 sm:mt-12">
+			<slot />
+		</section>
 	</div>
 </div>
-
-<style lang="postcss">
-	@keyframes slide-from-right {
-		from {
-			transform: translateX(30px);
-		}
-	}
-
-	@keyframes slide-to-left {
-		to {
-			transform: translateX(-30px);
-		}
-	}
-
-	:root::view-transition-old(root) {
-		animation:
-			90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
-	}
-
-	:root::view-transition-new(root) {
-		animation:
-			210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-			300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-	}
-</style>

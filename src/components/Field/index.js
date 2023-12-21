@@ -11,3 +11,5 @@ export { default as Email } from './Email.svelte';
 export { default as Date } from './Date.svelte';
 export { default as File } from './File.svelte'; // For general & image file type is OK. But document, audio, & video need enhancement
 export { default as Text } from './Text.svelte';
+
+import './style.scss'
