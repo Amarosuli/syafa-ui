@@ -29,7 +29,18 @@
 		}
 
 		.footer {
-			@apply mt-auto flex w-full justify-end;
+			@apply mt-auto flex w-full items-center;
+			&.start {
+				@apply justify-start;
+			}
+
+			&.center {
+				@apply justify-center;
+			}
+
+			&.end {
+				@apply justify-end;
+			}
 		}
 	}
 	.default {

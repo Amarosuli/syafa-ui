@@ -8,7 +8,7 @@
 	];
 </script>
 
-<div class="container mx-auto flex flex-col items-start justify-center gap-4 xl:flex-row">
+<div class="flex flex-col items-start justify-start gap-4 xl:flex-row">
 	<Form.Root id="example" action="/example" method="POST" enctype="multipart/form-data">
 		<Form.Title>Example Form</Form.Title>
 		<Form.Item>

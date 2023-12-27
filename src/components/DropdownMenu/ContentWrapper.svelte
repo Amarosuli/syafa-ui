@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 
-	export let size = 'w-max';
+	export let size: string = 'w-max';
 
 	let contentElement: HTMLElement;
 	let w: any;

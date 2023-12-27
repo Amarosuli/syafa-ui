@@ -23,7 +23,7 @@
 		halllo
 
 		<Modal.Footer>
-			<Button variant="rounded">Save Changes</Button>
+			<Button collor="primary" variant={['rounded']}>Save Changes</Button>
 		</Modal.Footer>
 	</Modal.Content>
 </Modal.Root>

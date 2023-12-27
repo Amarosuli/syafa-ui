@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import { Button, Spacer, Loader } from '@components';
 	import { ShieldQuestion, Check, AlertCircle } from 'lucide-svelte';
 </script>
 
-<div class="container mx-auto flex flex-col items-start justify-center gap-4">
+<div class="flex flex-col items-start justify-center gap-4">
 	<div class="group">
 		<p class="title">Button Varian</p>
 		<Spacer />
@@ -42,7 +42,7 @@
 			<Button collor="ghost" variant={['ghost', 'outline', 'rounded']}>Ghost Outline</Button>
 			<Button collor="main" variant="rounded">Rounded</Button>
 			<Button collor="muted">Muted</Button>
-			<Button collor="warning" formId="form1">Submit</Button>
+			<Button collor="warning" form="formSubmit">Submit</Button>
 			<Button collor="info" disabled variant="outline">Disabled</Button>
 			<Button collor="main"><Loader text="Fetching" /></Button>
 		</div>
@@ -58,6 +58,6 @@
 	}
 
 	.item {
-		@apply flex flex-col items-end gap-2 xl:flex-row;
+		@apply flex flex-col items-start gap-2 xl:flex-row;
 	}
 </style>

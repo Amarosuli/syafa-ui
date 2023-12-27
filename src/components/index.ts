@@ -4,7 +4,7 @@ export { Spacer } from './Spacer';
 export { Button } from './Button';
 export { Loader } from './Loader';
 export { Link } from './Link';
-export { Stat } from './Stat'
+export { Stat } from './Stat';
 
 // export * as Collapsible from './Collapsible'
 // export * as Table from './Table'
@@ -18,13 +18,4 @@ export * as Modal from './Modal';
 export * as Tabs from './Tabs';
 export * as List from './List';
 
-export {
-   buttonVariant,
-   buttonCollor,
-   clickOutSide,
-   collorSet,
-   themeInit,
-   tabStore,
-   toggler,
-   modal
-} from './component.utils.js';
+export { buttonVariant, buttonCollor, clickOutSide, collorSet, themeInit, tabStore, toggler, modal } from './component.utils';

@@ -9,7 +9,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { Search } from 'lucide-svelte';
 
-	export let value: any = '';
+	export let value: string | number = '';
 	export let label: string = '';
 	export let description: string = '';
 	export let error: string = '';
@@ -17,7 +17,7 @@
 	let input: HTMLInputElement;
 	const dispatch = createEventDispatcher();
 
-	function handleClick(e: any) {
+	function handleClick(e: { key: string }) {
 		if (e.key !== 'Enter') return;
 
 		dispatch('search', {

@@ -5,7 +5,7 @@
    props -> value, label, description, error, & commons attributes for text area input.
  -->
 <script lang="ts">
-	export let value: any = '';
+	export let value: string = '';
 	export let label: string = '';
 	export let description: string = '';
 	export let error: string = '';

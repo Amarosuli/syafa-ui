@@ -4,7 +4,7 @@
 
 	const { dropdownmenu }: any = getContext('toggler');
 
-	export let size = 'w-max';
+	export let size: string = 'w-max';
 </script>
 
 {#if $dropdownmenu}

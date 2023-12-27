@@ -4,8 +4,8 @@
 
    placeholder, required
  -->
-<script>
-	/** @type {*} value */ export let value;
+<script lang="ts">
+	export let value: any;
 </script>
 
 <input class="field slider" type="range" {...$$restProps} bind:value />

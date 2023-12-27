@@ -12,12 +12,12 @@
    <Sheet.Content />
    ```
  -->
-<script>
+<script lang="ts">
 	import { X } from 'lucide-svelte';
 	import { Button } from '@components';
 	import { getContext } from 'svelte';
 
-	const { sheet } = getContext('sheetToggler');
+	const { sheet }: { sheet: any } = getContext('sheetToggler');
 </script>
 
 <button class="btn icon absolute right-0 top-0 m-2" on:click={sheet.setFalse}>

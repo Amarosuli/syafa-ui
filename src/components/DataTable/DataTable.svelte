@@ -10,7 +10,7 @@
 	import { writable } from 'svelte/store';
 	import { Render, Subscribe, createRender } from 'svelte-headless-table';
 	import { Field, Button, DropdownMenu } from '@components';
-	import { SuperTable } from './Table.js';
+	import { SuperTable } from './Table';
 
 	export let columnConfig: any = [];
 

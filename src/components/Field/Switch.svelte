@@ -6,7 +6,7 @@
  -->
 <script lang="ts">
 	export let checked: boolean = false;
-	export let value: any = { onFalse: '', onTrue: '' };
+	export let value: { onFalse: any; onTrue: any } = { onFalse: '', onTrue: '' };
 	export let label: string = '';
 	export let description: string = '';
 	export let error: string = '';

@@ -4,8 +4,8 @@
 
    placeholder, required
  -->
-<script>
-	/** @type {*} value */ export let value;
+<script lang="ts">
+	export let value: number;
 </script>
 
 <input class="field number" type="number" {...$$restProps} bind:value />

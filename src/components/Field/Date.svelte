@@ -18,16 +18,16 @@
 	let date: Date = new Date();
 	let input: HTMLInputElement;
 
-	function triggerClick() {
+	function triggerClick(): void {
 		showDatePicker = !showDatePicker;
 	}
 
-	function selectDate(e: any) {
+	function selectDate(e: any): void {
 		value = e.detail;
 		hideDatePicker();
 	}
 
-	function hideDatePicker() {
+	function hideDatePicker(): void {
 		// if (e.type === 'select');
 
 		showDatePicker = false;

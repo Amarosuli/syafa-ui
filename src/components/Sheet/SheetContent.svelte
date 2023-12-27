@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import { getContext } from 'svelte';
 	import { clickOutSide } from '@components';
 
-	/** @type {sheetSide} side */ export let side = 'right';
-	/** @type {boolean} clickBackdrop */ export let clickBackdrop = true;
+	export let side: sheetSide = 'right';
+	export let clickBackdrop: boolean = true;
 
-	const { sheet } = getContext('sheetToggler');
+	const { sheet }: { sheet: any } = getContext('sheetToggler');
 	const transitionConfig = {
 		right: { x: 500 },
 		left: { x: -500 },

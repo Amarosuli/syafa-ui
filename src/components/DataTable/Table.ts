@@ -1,15 +1,18 @@
-// @ts-nocheck
 import { addSortBy, addTableFilter, addSelectedRows, addHiddenColumns, addDataExport } from 'svelte-headless-table/plugins';
 import { createTable, createRender } from 'svelte-headless-table';
 
 import EditableCell from './EditableCell.svelte';
 import SelectorCell from './CheckCell.svelte';
 import ImageCell from './ImageCell.svelte';
+import type { Writable } from 'svelte/store';
 
 export class SuperTable {
 	column = [];
 	rowNumber = 0;
-	constructor(data, columnConfig, option) {
+	table: any;
+	init: any;
+	state: any;
+	constructor(data: Writable<any>, columnConfig, option: {}) {
 		this.filterOption(this.defaultOption, this.defaultPlugin, option);
 		this.table = createTable(data, this.defaultPlugin);
 		this.init = this.generateTable(this.table, columnConfig, this.plugin);
@@ -107,7 +110,7 @@ export class SuperTable {
 		this.rowNumber = 0;
 	}
 
-	generateTable(table, columnConfig, plugin) {
+	generateTable(table: any, columnConfig, plugin) {
 		this.createColumn(columnConfig, plugin);
 		return table.createViewModel(table.createColumns(this.column));
 	}

@@ -1,4 +1,4 @@
-<div class="container mx-auto flex flex-col items-start justify-center gap-4">
+<div class="flex flex-col items-start justify-center gap-4">
 	<h1 class="text-2xl font-bold text-foreground/80">Typography</h1>
 	<p class="text-sm text-foreground/80">
 		Typography is an important part of the Design System that brings consistency across experiences and platforms. Good typography rules help present content clearly and efficiently.

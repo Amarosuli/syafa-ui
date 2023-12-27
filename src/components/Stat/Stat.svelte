@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 </script>
 
 <div class="relative flex w-full flex-col items-start justify-start border border-foreground p-4">

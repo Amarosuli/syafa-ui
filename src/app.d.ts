@@ -19,7 +19,7 @@ declare global {
 	type buttonVariant = 'rounded' | 'outline' | 'ghost';
 	type buttonSize = 'default' | 'smaller' | 'bigger' | 'icon';
 	type sheetSide = 'right' | 'left' | 'top' | 'bottom';
-	type selectOption = { value: string | number; label: string } | {};
+	type selectOption = { value: string | number; label: string };
 	type inputFileType = 'image' | 'document' | 'video' | 'audio' | 'file';
 }
 // declare namespace svelte.JSX {

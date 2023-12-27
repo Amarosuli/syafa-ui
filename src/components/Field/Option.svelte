@@ -23,15 +23,13 @@
    ```
  -->
 
-<script>
-	// @ts-nocheck
-
+<script lang="ts">
 	import { getContext } from 'svelte';
 
-	/** @type {selectOption} opt */ export let opt;
-	/** @type {*} opt */ export let disabled = false;
+	export let opt: selectOption;
+	export let disabled: boolean = false;
 
-	const { selected } = getContext('selector');
+	const { selected }: { selected: any } = getContext('selector');
 </script>
 
 <button
@@ -40,6 +38,6 @@
 	{disabled}
 	class="item"
 	on:click|preventDefault={() => {
-		console.log('clicekd');
+		// console.log('clicekd');
 		selected.select(opt?.value);
 	}}><slot>{opt?.label}</slot></button>

@@ -13,15 +13,15 @@
 	let showError = false;
 </script>
 
-<div class="container mx-auto flex flex-col items-start justify-center gap-4">
-	<div class="mb-4 flex h-max w-max justify-center self-center overflow-hidden rounded-[var(--radius)]">
+<div class="flex flex-col items-center justify-center gap-4">
+	<div class="mb-4 flex h-max w-full flex-col justify-center divide-y divide-background/30 self-start overflow-hidden rounded-[var(--radius)] sm:w-max sm:flex-row sm:divide-x">
 		<Button size="smaller" on:click={() => (showPlaceholder = !showPlaceholder)}>{showPlaceholder ? 'Hide' : 'Show'} Placeholder</Button>
 		<Button size="smaller" on:click={() => (showLabel = !showLabel)}>{showLabel ? 'Hide' : 'Show'} Label</Button>
 		<Button size="smaller" on:click={() => (showDescription = !showDescription)}>{showDescription ? 'Hide' : 'Show'} Description</Button>
 		<Button size="smaller" on:click={() => (showError = !showError)}>{showError ? 'Hide' : 'Show'} Error</Button>
 	</div>
 
-	<div class="flex w-max flex-col space-y-2 self-center">
+	<div class="flex w-full flex-col space-y-2 self-start">
 		<Field.Select label={`${showLabel ? 'select input' : ''}`} description={`${showDescription ? 'this is your select description.' : ''}`} error={`${showError ? 'Required' : ''}`}>
 			{#each options as opt}
 				<Field.Option {opt}>{opt?.label}</Field.Option>

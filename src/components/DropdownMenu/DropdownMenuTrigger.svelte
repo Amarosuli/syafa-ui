@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 
-	const { dropdownmenu } = getContext('toggler');
+	const { dropdownmenu }: any = getContext('toggler');
 </script>
 
 <slot {dropdownmenu} />

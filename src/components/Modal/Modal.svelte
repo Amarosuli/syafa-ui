@@ -9,8 +9,7 @@
 	modal.register(name);
 	const listen = modal.listen(name);
 
-	/** @param {'import("svelte/elements").KeyboardEventHandler'} event */
-	function handleKeyDown(event: any) {
+	function handleKeyDown(event: KeyboardEvent) {
 		if (event.keyCode === 27 || event.key === 'Escape' || event.code === 'Escape') {
 			modal.hide(name);
 		}
