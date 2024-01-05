@@ -79,7 +79,7 @@
 		<section class="dark:dark mx-5 mt-5 hidden h-fit w-full flex-shrink rounded-lg bg-background p-6 text-foreground shadow sm:-ml-4 sm:mr-8 sm:mt-12 xl:flex">
 			<div class="flex flex-col">
 				<h1 class="font-bold">Docs</h1>
-				<p># Development #</p>
+				<p># Under Construction #</p>
 			</div>
 		</section>
 	</div>

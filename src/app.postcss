@@ -21,68 +21,91 @@
 		/* ghost */
 		--ghost: var(--secondary) / 0;
 		--ghost-foreground: var(--secondary-foreground);
+		--ghost-event: var(--secondary-event);
 
 		/* muted */
-		--muted: 240 4.8% 95.9%;
+		--muted-lightness: 240;
+		--muted: var(--muted-lightness) 4.8% 95.9%;
 		--muted-foreground: 240 3.8% 46.1%;
+		--muted-event: calc(var(--muted-lightness) + 5) 4.8% 95.9%;
 
 		/* main 195, 100%, 50%*/
-		--main: 195 100% 50%;
+		--main-lightness: 195;
+		--main: var(--main-lightness) 100% 50%;
 		--main-foreground: 240 20% 30%;
+		--main-event: calc(var(--main-lightness) + 5) 100% 50%;
 
 		/* primary 195, 100%, 50%*/
-		--primary: 240 5.9% 10%;
+		--primary-light: 10%;
+		--primary: 24 5.9% var(--primary-light);
 		--primary-foreground: 0 0% 98%;
+		--primary-event: 24 5.9% calc(var(--primary-light) + 15%);
 
 		/* secondary */
-		--secondary: 240 4.8% 95.9%;
+		--secondary-lightness: 240;
+		--secondary: var(--secondary-lightness) 4.8% 95.9%;
 		--secondary-foreground: 240 5.9% 10%;
+		--secondary-event: calc(var(--secondary-lightness) + 5) 4.8% 95.9%;
 
 		/* info 180, 100%, 89% */
-		--info: 180 100% 89%;
+		--info-lightness: 180;
+		--info: var(--info-lightness) 100% 89%;
 		--info-foreground: 240 20% 30%;
+		--info-event: calc(var(--info-lightness) + 5) 100% 89%;
 
 		/* success 142, 77%, 73% */
-		--success: 142 77% 73%;
+		--success-lightness: 142;
+		--success: var(--success-lightness) 77% 73%;
 		--success-foreground: 240 20% 30%;
+		--success-event: calc(var(--success-lightness) - 15) 77% 73%;
 
 		/* warning 45, 100%, 51% */
-		--warning: 24 100% 52%;
+		--warning-lightness: 24;
+		--warning: var(--warning-lightness) 100% 52%;
 		--warning-foreground: 0 0% 98%;
+		--warning-event: calc(var(--warning-lightness) + 10) 100% 52%;
 
 		/* error 345, 86%, 52% */
-		--error: 345 86% 52%;
+		--error-lightness: 345;
+		--error: var(--error-lightness) 86% 52%;
 		--error-foreground: 0 0% 98%;
+		--error-event: calc(var(--error-lightness) + 5) 86% 52%;
 
 		/** Blue **/
 		--blue-hue: 218;
 		--blue-100: var(--blue-hue) 100% 82%; /* #A1C4FF */
 		--blue-foreground: 240 20% 30%;
+		--blue-event: calc(var(--blue-hue) + 5) 100% 82%; /* #A1C4FF */
 
 		/** Green **/
 		--green-hue: 172;
 		--green-100: var(--green-hue) 50% 72%; /* #94DBD1 */
 		--green-foreground: 240 20% 30%;
+		--green-event: calc(var(--green-hue) + 5) 50% 72%; /* #94DBD1 */
 
 		/** Orange **/
 		--orange-hue: 32;
 		--orange-100: var(--orange-hue) 97% 75%; /* #FDC584 */
 		--orange-foreground: 240 20% 30%;
+		--orange-event: calc(var(--orange-hue) + 5) 97% 75%; /* #FDC584 */
 
 		/** Red **/
 		--red-hue: 0;
 		--red-100: var(--red-hue) 100% 82%; /* #FFA1A1 */
 		--red-foreground: 240 20% 30%;
+		--red-event: calc(var(--red-hue) + 5) 100% 82%; /* #FFA1A1 */
 
 		/** Purple **/
 		--purple-hue: 261;
 		--purple-100: var(--purple-hue) 93% 84%; /* #CBB1FC */
 		--purple-foreground: 240 20% 30%;
+		--purple-event: calc(var(--purple-hue) + 5) 93% 84%; /* #CBB1FC */
 
 		/** Pink **/
 		--pink-hue: 331;
 		--pink-100: var(--pink-hue) 100% 82%; /* #FFA1CE */
 		--pink-foreground: 240 20% 30%;
+		--pink-event: calc(var(--pink-hue) + 5) 100% 82%; /* #FFA1CE */
 	}
 
 	.dark {
@@ -97,8 +120,10 @@
 
 		--ring: 240 3.7% 15.9%;
 
-		--primary: 0 0% 98%;
+		--primary-light: 98%;
+		--primary: 0 0% var(--primary-light);
 		--primary-foreground: 240 5.9% 10%;
+		--primary-event: 0 0% calc(var(--primary-light) - 15%);
 
 		--secondary: 240 3.7% 15.9%;
 		--secondary-foreground: 0 0% 98%;

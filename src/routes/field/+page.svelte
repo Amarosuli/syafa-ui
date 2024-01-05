@@ -4,6 +4,9 @@
 	let options = [
 		{ label: 'German', value: 'German' },
 		{ label: 'Indonesia', value: 'Indonesia' },
+		{ label: 'Vietnam', value: 'Vietnam' },
+		{ label: 'Vietnam', value: 'Vietnam' },
+		{ label: 'Vietnam', value: 'Vietnam' },
 		{ label: 'Vietnam', value: 'Vietnam' }
 	];
 
@@ -27,6 +30,7 @@
 				<Field.Option {opt}>{opt?.label}</Field.Option>
 			{/each}
 		</Field.Select>
+		<Field.Combobox label={`${showLabel ? 'combobox' : ''}`} description={`${showDescription ? 'this is your combobox description.' : ''}`} error={`${showError ? 'Required' : ''}`}></Field.Combobox>
 		<Field.Date label={`${showLabel ? 'date input' : ''}`} description={`${showDescription ? 'this is your date description.' : ''}`} error={`${showError ? 'Required' : ''}`} />
 		<Field.Text
 			placeholder={`${showPlaceholder ? 'Type something..' : ''}`}
@@ -75,7 +79,7 @@
 
 		<Field.Switch label={`${showLabel ? 'switch input' : ''}`} description={`${showDescription ? 'this is your switch description.' : ''}`} error={`${showError ? 'Should be true' : ''}`} />
 
-		<Field.Number value="" />
+		<!-- <Field.Number value="" /> -->
 		<Field.Slider value="" />
 	</div>
 </div>

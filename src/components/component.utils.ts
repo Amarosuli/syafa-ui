@@ -19,16 +19,26 @@ export const collorSet: Record<collorType, string> = {
  */
 
 export const buttonCollor: Record<collorType, string> = {
-	none: `${collorSet.main} hover:bg-main/80`,
-	main: `${collorSet.main} hover:bg-main/80`,
-	primary: `${collorSet.primary} hover:bg-primary/80`,
-	secondary: `${collorSet.secondary} hover:bg-secondary/80`,
-	muted: `${collorSet.muted} hover:bg-muted/80`,
-	info: `${collorSet.info} hover:bg-info/80`,
-	success: `${collorSet.success} hover:bg-success/80`,
-	warning: `${collorSet.warning} hover:bg-warning/80`,
-	error: `${collorSet.error} hover:bg-error/80`,
-	ghost: `${collorSet.ghost} hover:bg-ghost-foreground/10`
+	none: `${collorSet.main} hover:bg-main-event`,
+	main: `${collorSet.main} hover:bg-main-event`,
+	primary: `${collorSet.primary} hover:bg-primary-event`,
+	secondary: `${collorSet.secondary} hover:bg-secondary-event`,
+	muted: `${collorSet.muted} hover:bg-muted-event`,
+	info: `${collorSet.info} hover:bg-info-event`,
+	success: `${collorSet.success} hover:bg-success-event`,
+	warning: `${collorSet.warning} hover:bg-warning-event`,
+	error: `${collorSet.error} hover:bg-error-event`,
+	ghost: `${collorSet.ghost} hover:bg-ghost-event`
+	// none: `${collorSet.main} hover:bg-main/80`,
+	// main: `${collorSet.main} hover:bg-main/80`,
+	// primary: `${collorSet.primary} hover:bg-primary/80`,
+	// secondary: `${collorSet.secondary} hover:bg-secondary/80`,
+	// muted: `${collorSet.muted} hover:bg-muted/80`,
+	// info: `${collorSet.info} hover:bg-info/80`,
+	// success: `${collorSet.success} hover:bg-success/80`,
+	// warning: `${collorSet.warning} hover:bg-warning/80`,
+	// error: `${collorSet.error} hover:bg-error/80`,
+	// ghost: `${collorSet.ghost} hover:bg-ghost-foreground/10`
 };
 
 export const buttonVariant: Record<buttonVariant, string> = {

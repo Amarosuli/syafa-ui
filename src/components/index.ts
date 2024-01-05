@@ -17,5 +17,6 @@ export * as Form from './Form';
 export * as Modal from './Modal';
 export * as Tabs from './Tabs';
 export * as List from './List';
+export * as Collapsible from './Collapsible';
 
 export { buttonVariant, buttonCollor, clickOutSide, collorSet, themeInit, tabStore, toggler, modal } from './component.utils';

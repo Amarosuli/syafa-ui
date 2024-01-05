@@ -1,19 +1,18 @@
 <script lang="ts">
+	import { melt } from '@melt-ui/svelte';
 	import { getContext } from 'svelte';
-	import { slide } from 'svelte/transition';
 
 	export let props: { value: any; disabled: boolean | undefined } | string;
 
 	const { accordion }: any = getContext('accordion');
 
 	const {
-		elements: { content },
-		helpers: { isSelected }
+		elements: { trigger }
 	} = accordion;
 </script>
 
-{#if $isSelected(props)}
-	<div {...$content(props)} use:content transition:slide>
+<h2 class="flex">
+	<button class="w-full px-4 py-3 text-left" use:melt={$trigger(props)}>
 		<slot />
-	</div>
-{/if}
+	</button>
+</h2>

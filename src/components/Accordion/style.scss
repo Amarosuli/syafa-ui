@@ -1,0 +1,15 @@
+.accordion {
+	@apply w-[18rem] bg-background px-4 py-3 text-xs text-foreground xl:text-sm;
+
+	.trigger {
+		@apply w-full;
+
+		.title {
+			@apply px-4 py-3 font-semibold;
+		}
+	}
+
+	.item {
+		@apply rounded-md border px-4 py-3 font-mono text-sm;
+	}
+}

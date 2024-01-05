@@ -78,8 +78,7 @@
 
 	$: $selected, (isOpen = false);
 	$: console.log($selected);
-   $: console.log(value);
-   
+	$: console.log(value);
 </script>
 
 <label class="label text">

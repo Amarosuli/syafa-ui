@@ -1,1 +1,5 @@
-Belum di bikin, waiting list...
+<script lang="ts">
+	import { Field } from '@components';
+</script>
+
+<Field.Combobox></Field.Combobox>
