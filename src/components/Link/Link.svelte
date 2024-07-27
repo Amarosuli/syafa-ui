@@ -8,27 +8,32 @@
       ```
  -->
 <script lang="ts">
-	import type { Snippet, } from 'svelte';
+	import type { Snippet } from 'svelte';
 
-   interface Props {
-      children: Snippet<[]>;
-      href?: string;
-      underline?: boolean;
-      classes?: string;
-      isDisabled?: boolean;
-      active?: boolean;
-   }
+	interface Props {
+		children: Snippet<[]>;
+		href?: string;
+		underline?: boolean;
+		classes?: string;
+		isDisabled?: boolean;
+		active?: boolean;
+	}
 
-	let {
-      children,
-		href = '/',
-		underline = false,
-		classes,
-		isDisabled = false,
-		active = false
-   }: Props = $props();
+	let { children, href = '/', underline = false, classes, isDisabled = false, active = false }: Props = $props();
 </script>
 
-<a {href} class="link {isDisabled ? 'pointer-events-none disabled' : ''} {classes}" class:underline_hover={underline} class:underline_active={active}>
+<a
+	{href}
+	class="{classes}
+      {isDisabled ? 'disabled pointer-events-none' : ''}
+      {underline ? 'underline-offset-2 hover:underline' : ''}
+      {active ? 'underline underline-offset-2' : ''}
+      ">
 	{@render children()}
 </a>
+
+<style lang="postcss">
+	a {
+		@apply w-fit select-none overflow-hidden whitespace-nowrap text-xs text-primary transition-all ease-out hover:text-primary/50 xl:text-sm;
+	}
+</style>
