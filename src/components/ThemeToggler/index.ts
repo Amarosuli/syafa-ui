@@ -1,1 +1,1 @@
-export { default as ThemeToggler } from './Root.svelte';
+export { default as ThemeToggler } from './ThemeToggler.svelte';

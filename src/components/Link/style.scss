@@ -1,6 +1,6 @@
 /* Link */
 .link {
-	@apply flex w-max items-center justify-center gap-2 overflow-hidden whitespace-nowrap text-xs text-primary transition-all ease-out hover:text-primary/50 xl:text-sm;
+	@apply flex w-max select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap text-xs text-primary transition-all ease-out hover:text-primary/50 xl:text-sm;
 
 	&.underline_hover {
 		@apply p-2 underline decoration-main/0 underline-offset-4 hover:underline hover:decoration-main/100 hover:underline-offset-4;
