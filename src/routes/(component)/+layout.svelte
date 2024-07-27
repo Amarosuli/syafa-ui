@@ -46,7 +46,7 @@
 
 		<a href="/" class="text-4xl font-extrabold italic text-foreground">Syafa UI</a>
 		<p class="pt-1 text-xs text-foreground">
-			Visit to the <a href="https://github.com/Amarosuli/syafa-ui" class="font-bold underline">Github</a> to give a star.
+			Visit to the <Link active href="https://github.com/Amarosuli/syafa-ui">Github</Link> to give a star.
 		</p>
 	</div>
 	<div class="fixed right-4 top-4 h-24 w-fit flex justify-center items-center">

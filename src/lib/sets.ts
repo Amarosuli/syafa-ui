@@ -12,7 +12,7 @@
 export const navbarLink : Link[] = [
    { href: '/system-collor', title: 'System Collor' , isDisabled: false},
    { href: '/button', title: 'Button' , isDisabled: false},
-   { href: '/link', title: 'Link' , isDisabled: true},
+   { href: '/link', title: 'Link' , isDisabled: false},
    { href: '/typography', title: 'Typography' , isDisabled: true},
    { href: '/form', title: 'Form' , isDisabled: true},
    { href: '/field', title: 'Field' , isDisabled: true},
