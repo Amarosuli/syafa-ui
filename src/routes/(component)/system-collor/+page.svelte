@@ -1,40 +1,63 @@
-<div class="flex flex-col items-start justify-center gap-4 xl:flex-row">
-	<div class="flex w-full flex-col items-start justify-center gap-4">
-		<!-- <p class="title">Base Collors</p> -->
-		<a href="#base-collors" class="title">Base Collors</a>
-		<span class="item bg-background text-foreground">Background <span class="item-sub">bg-background text-foreground</span></span>
-		<span class="item bg-foreground text-background">Foreground <span class="item-sub">bg-foreground text-background</span></span>
-	</div>
-	<div class="flex w-full flex-col items-start justify-center gap-4">
-		<!-- <p class="title">System Collors</p> -->
-		<a href="#system-collors" class="title">System Collors</a>
-		<span class="item bg-main text-main-foreground">Main <span class="item-sub">bg-main text-main-foreground</span></span>
-		<span class="item bg-primary text-primary-foreground">Primary <span class="item-sub">bg-primary text-primary-foreground</span></span>
-		<span class="item bg-secondary text-secondary-foreground">Secondary <span class="item-sub">bg-secondary text-secondary-foreground</span></span>
-		<span class="item bg-muted text-muted-foreground">Muted <span class="item-sub">bg-muted text-muted-foreground</span></span>
-		<span class="item bg-info text-info-foreground">Info <span class="item-sub">bg-info text-info-foreground</span></span>
-		<span class="item bg-success text-success-foreground">Success <span class="item-sub">bg-success text-success-foreground</span></span>
-		<span class="item bg-warning text-warning-foreground">Warning <span class="item-sub">bg-warning text-warning-foreground</span></span>
-		<span class="item bg-error text-error-foreground">Error <span class="item-sub">bg-error text-error-foreground</span></span>
-		<span class="item bg-ghost text-ghost-foreground">Ghost <span class="item-sub">bg-ghost text-ghost-foreground</span></span>
-	</div>
-	<div class="flex w-full flex-col items-start justify-center gap-4">
-		<!-- <p class="title">Additional Collors</p> -->
-		<a href="#additional-collors" class="title">Additional Collors</a>
-		<span class="item bg-blue text-blue-foreground">Blue <span class="item-sub">bg-blue text-blue-foreground</span></span>
-		<span class="item bg-green text-green-foreground">Green <span class="item-sub">bg-green text-green-foreground</span></span>
-		<span class="item bg-orange text-orange-foreground">Orange <span class="item-sub">bg-orange text-orange-foreground</span></span>
-		<span class="item bg-red text-red-foreground">Red <span class="item-sub">bg-red text-red-foreground</span></span>
-		<span class="item bg-purple text-purple-foreground">Purple <span class="item-sub">bg-purple text-purple-foreground</span></span>
-		<span class="item bg-pink text-pink-foreground">Pink <span class="item-sub">bg-pink text-pink-foreground</span></span>
-	</div>
-</div>
+<script lang="ts">
+	import { fade } from 'svelte/transition';
 
-<!-- wrapper for docs -->
+	const collors: Record<string, { name: string; value: string; cn: string }[]> = {
+		base: [
+			{ name: 'background', value: 'bg-background', cn: 'bg-background text-foreground' },
+			{ name: 'foreground', value: 'bg-foreground', cn: 'bg-foreground text-background' }
+		],
+		system: [
+			{ name: 'main', value: 'bg-main', cn: 'bg-main' },
+			{ name: 'primary', value: 'bg-primary', cn: 'bg-primary' },
+			{ name: 'secondary', value: 'bg-secondary', cn: 'bg-secondary' },
+			{ name: 'muted', value: 'bg-muted', cn: 'bg-muted' },
+			{ name: 'info', value: 'bg-info', cn: 'bg-info' },
+			{ name: 'success', value: 'bg-success', cn: 'bg-success' },
+			{ name: 'warning', value: 'bg-warning', cn: 'bg-warning' },
+			{ name: 'error', value: 'bg-error', cn: 'bg-error' },
+			{ name: 'ghost', value: 'bg-ghost', cn: 'bg-ghost' }
+		],
+		additional: [
+			{ name: 'blue', value: 'bg-blue', cn: 'bg-blue text-blue-foreground' },
+			{ name: 'green', value: 'bg-green', cn: 'bg-green text-green-foreground' },
+			{ name: 'orange', value: 'bg-orange', cn: 'bg-orange text-orange-foreground' },
+			{ name: 'red', value: 'bg-red', cn: 'bg-red text-red-foreground' },
+			{ name: 'purple', value: 'bg-purple', cn: 'bg-purple text-purple-foreground' },
+			{ name: 'pink', value: 'bg-pink', cn: 'bg-pink text-pink-foreground' }
+		]
+	};
+
+	const copyOnClick = (node: HTMLSpanElement) => {
+		let copy = node.textContent || '';
+
+		node.addEventListener('click', () => navigator.clipboard.writeText(copy));
+		return {
+			destroy: () => {
+				node.removeEventListener('click', () => navigator.clipboard.writeText(copy));
+			}
+		};
+	};
+</script>
+
+<div in:fade={{ delay: 100, duration: 150 }}  class="flex w-full flex-col items-start justify-center gap-4 xl:flex-row">
+	{#each Object.keys(collors) as key}
+		<div class="flex w-full flex-col items-center justify-center border">
+			<a href="#{key}" class="w-full py-2 pl-3 text-lg font-extrabold capitalize text-foreground/80">{key}</a>
+			<div class="w-full space-y-1 border-t p-3">
+				{#each collors[key] as { name, value, cn }}
+					<div class="flex gap-3">
+						<span class="{cn} cursor-pointer rounded-full border px-3 py-2" use:copyOnClick></span>
+						<p class="text-xs font-semibold">{name}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	{/each}
+</div>
 
 <style lang="postcss">
 	.title {
-		@apply text-xl font-bold  underline underline-offset-2;
+		@apply text-xl font-bold underline underline-offset-2;
 	}
 	.item {
 		@apply flex w-full flex-col justify-between gap-1 rounded px-6 py-4 text-xs font-bold xl:flex-row xl:gap-2 xl:text-base;
