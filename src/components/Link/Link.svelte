@@ -10,7 +10,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	interface Props {
+	interface LinkProps {
 		children: Snippet<[]>;
 		href?: string;
 		underline?: boolean;
@@ -19,7 +19,7 @@
 		active?: boolean;
 	}
 
-	let { children, href = '/', underline = false, classes, isDisabled = false, active = false }: Props = $props();
+	let { children, href = '/', underline = false, classes, isDisabled = false, active = false }: LinkProps = $props();
 </script>
 
 <a
