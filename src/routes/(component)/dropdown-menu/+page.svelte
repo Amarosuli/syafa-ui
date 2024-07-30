@@ -5,7 +5,7 @@
 <div class="container mx-auto flex justify-center">
 	<DropdownMenu.Root>
 		<DropdownMenu.Trigger let:dropdownmenu>
-			<Button collor="ghost" variant={['ghost', 'outline', 'rounded']} on:click={dropdownmenu.toggle}>Open</Button>
+			<Button collor="ghost" variant={['ghost', 'outline', 'rounded']} onclick={dropdownmenu.toggle}>Open</Button>
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content size="w-56">
 			<List.Root>
