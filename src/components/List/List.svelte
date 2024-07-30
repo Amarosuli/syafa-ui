@@ -1,7 +1,14 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	let { children, direction = 'vertical', full = false }: { children: Snippet; direction: 'vertical' | 'horizontal'; full: boolean } = $props();
+	interface ListProps extends HTMLAttributes<HTMLDivElement> {
+		children: Snippet<[]>;
+		direction?: 'vertical' | 'horizontal';
+		full?: boolean;
+	}
+
+	let { children, direction = 'vertical', full = false }: ListProps = $props();
 
 	function getClass(): string {
 		if (direction === 'vertical') {

@@ -16,14 +16,14 @@
 	interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 		children: Snippet;
 		collor: collorType;
-		variant: buttonVariant | buttonVariant[];
-		disabled: boolean;
-		size: buttonSize;
+		variant?: buttonVariant | buttonVariant[];
+		disabled?: boolean;
+		size?: buttonSize;
 		modalName?: string;
-		outline: boolean;
-		rounded: boolean;
-		form: boolean;
-		onclick: (event: Event) => void;
+		outline?: boolean;
+		rounded?: boolean;
+		form?: boolean;
+		onclick?: (event: Event) => void;
 	}
 
 	let { children, onclick, collor = 'primary', variant = 'ghost', disabled = false, size = 'default', modalName, outline = false, rounded = false, form = false, ...restProps }: ButtonProps = $props();
