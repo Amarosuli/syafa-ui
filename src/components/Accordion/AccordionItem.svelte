@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { melt } from '@melt-ui/svelte';
-	import { getContext } from 'svelte';
+	import { getContext, type Snippet } from 'svelte';
 
-	export let props: { value: any; disabled: boolean | undefined } | string;
+	interface AccordionItemProps {
+		children: Snippet;
+		props: { value: any; disabled?: boolean } | string;
+	}
+	let { children, props }: AccordionItemProps = $props();
 
 	const { accordion }: any = getContext('accordion');
 
@@ -12,5 +16,5 @@
 </script>
 
 <div use:melt={$item(props)} class="w-full divide-y divide-white bg-slate-200 dark:bg-slate-500">
-	<slot />
+	{@render children()}
 </div>

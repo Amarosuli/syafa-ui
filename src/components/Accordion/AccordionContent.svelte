@@ -1,8 +1,13 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import { getContext, type Snippet } from 'svelte';
 	import { slide } from 'svelte/transition';
 
-	export let props: { value: any; disabled: boolean | undefined } | string;
+	interface AccordionContentProps {
+		children: Snippet;
+		props: { value: any; disabled?: boolean } | string;
+	}
+
+	let { children, props }: AccordionContentProps = $props();
 
 	const { accordion }: any = getContext('accordion');
 
@@ -14,6 +19,6 @@
 
 {#if $isSelected(props)}
 	<div {...$content(props)} use:content transition:slide>
-		<slot />
+		{@render children()}
 	</div>
 {/if}

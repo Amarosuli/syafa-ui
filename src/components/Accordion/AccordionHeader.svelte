@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { melt } from '@melt-ui/svelte';
-	import { getContext } from 'svelte';
+	import { getContext, type Snippet } from 'svelte';
 
-	export let props: { value: any; disabled: boolean | undefined } | string;
+	interface AccordionHeaderProps {
+		children: Snippet;
+		props: { value: any; disabled?: boolean } | string;
+	}
+	let { children, props }: AccordionHeaderProps = $props();
 
 	const { accordion }: any = getContext('accordion');
 
@@ -13,6 +17,6 @@
 
 <h2 class="flex">
 	<button class="w-full px-4 py-3 text-left" use:melt={$trigger(props)}>
-		<slot />
+		{@render children()}
 	</button>
 </h2>
