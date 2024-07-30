@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, type Snippet } from 'svelte';
 	import { getContext } from 'svelte';
 
-	export let value: string;
+	let { children, value }: { children: Snippet; value: string } = $props();
 
 	let contentElement: HTMLElement;
 	const { tabs }: any = getContext('tabs');
@@ -13,5 +13,5 @@
 </script>
 
 <div bind:this={contentElement} class:hidden={$tabs !== value} class="content">
-	<slot />
+	{@render children()}
 </div>

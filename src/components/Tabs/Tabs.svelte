@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { setContext, type Snippet } from 'svelte';
 	import { tabStore } from '@components';
 
+	let { children }: { children: Snippet } = $props();
 	setContext('tabs', { tabs: tabStore() });
 </script>
 
 <div class="tabs">
-	<slot />
+	{@render children()}
 </div>
