@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let direction: 'vertical' | 'horizontal' = 'vertical';
+	import type { Snippet } from 'svelte';
+
+	let { children, direction = 'vertical', full = false }: { children: Snippet; direction: 'vertical' | 'horizontal'; full: boolean } = $props();
 
 	function getClass(): string {
 		if (direction === 'vertical') {
@@ -10,7 +12,7 @@
 	}
 
 	function getSize(): string {
-		if ($$restProps?.full) {
+		if (full) {
 			return 'w-full';
 		} else {
 			return '';
@@ -19,5 +21,5 @@
 </script>
 
 <div class="divide-foreground/10 {getClass()}">
-	<slot />
+	{@render children()}
 </div>
