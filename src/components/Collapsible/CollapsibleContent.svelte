@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { melt } from '@melt-ui/svelte';
 	import { slide } from 'svelte/transition';
+	import { getContext, type Snippet } from 'svelte';
 
-	import { getContext } from 'svelte';
+	let { children }: { children: Snippet } = $props();
 
 	const { collapsible }: any = getContext('collapsible');
 	const {
@@ -14,7 +15,7 @@
 <div>
 	{#if $open}
 		<div class="content" use:melt={$content} transition:slide>
-			<slot />
+			{@render children()}
 		</div>
 	{/if}
 </div>
