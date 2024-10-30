@@ -1,7 +1,0 @@
-/* Dropdown Menu */
-.dropdown {
-	@apply relative inset-0 h-fit w-fit;
-	.content {
-		@apply absolute  z-20 mt-2 flex flex-col  overflow-hidden rounded border border-foreground/10 bg-background text-foreground shadow-md;
-	}
-}
