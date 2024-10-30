@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { ChevronsUpDown, X } from 'lucide-svelte';
-	import { getContext, type Snippet } from 'svelte';
+	import { getContext } from 'svelte';
 	import { Button } from '@components';
-
-	let { children }: { children: Snippet } = $props();
 
 	const { collapsible }: any = getContext('collapsible');
 	const {
@@ -14,10 +12,10 @@
 
 <div class="trigger">
 	<span class="title">
-		{@render children()}
+		<slot />
 	</span>
 
-	<Button {...$trigger} onclick={() => ($open = !$open)} collor="ghost">
+	<Button {...$trigger} on:click={() => ($open = !$open)} collor="ghost">
 		{#if $open}
 			<X size="15" />
 		{:else}

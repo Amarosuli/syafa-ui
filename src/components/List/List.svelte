@@ -1,14 +1,5 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-	import type { HTMLAttributes } from 'svelte/elements';
-
-	interface ListProps extends HTMLAttributes<HTMLDivElement> {
-		children: Snippet<[]>;
-		direction?: 'vertical' | 'horizontal';
-		full?: boolean;
-	}
-
-	let { children, direction = 'vertical', full = false }: ListProps = $props();
+	export let direction: 'vertical' | 'horizontal' = 'vertical';
 
 	function getClass(): string {
 		if (direction === 'vertical') {
@@ -19,7 +10,7 @@
 	}
 
 	function getSize(): string {
-		if (full) {
+		if ($$restProps?.full) {
 			return 'w-full';
 		} else {
 			return '';
@@ -28,5 +19,5 @@
 </script>
 
 <div class="divide-foreground/10 {getClass()}">
-	{@render children()}
+	<slot />
 </div>

@@ -6,4 +6,4 @@
 	};
 </script>
 
-<div class="my-2 w-full {spacerStyle[style]}"></div>
+<div class="my-2 w-full {spacerStyle[style]}" />

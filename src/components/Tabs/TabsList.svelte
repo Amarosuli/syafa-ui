@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext, type Snippet } from 'svelte';
+	import { getContext } from 'svelte';
 	import { onMount } from 'svelte';
 
 	const { tabs }: any = getContext('tabs');
@@ -8,8 +8,6 @@
 	let defaultSelected: boolean;
 	let childElement: NodeListOf<HTMLElement>;
 	let listElement: HTMLElement;
-
-	let { children }: { children: Snippet } = $props();
 
 	onMount(() => {
 		childElement = listElement.querySelectorAll('button');
@@ -27,5 +25,5 @@
 </script>
 
 <div class="tab-list" bind:this={listElement}>
-	{@render children()}
+	<slot />
 </div>

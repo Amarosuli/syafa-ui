@@ -1,74 +1,71 @@
-<script lang="ts">
+<script>
 	import '../../app.postcss';
+	// import { onMount } from 'svelte';
 
 	import { page } from '$app/stores';
-	import { navbarLink } from '$lib/sets';
-	import { slide, fade, fly } from 'svelte/transition';
-	import { ThemeToggler, Link } from '@components';
-
-	let { children } = $props();
-	let isAsideOpen: boolean = $state(false);
-	let windowWidth = $state(0);
-	let isScreenLarge = $derived(windowWidth > 768);
-	let pathname = $derived($page.url.pathname)
-
-	function toggleAside() {
-		isAsideOpen = !isAsideOpen;
-	};
-
-	$effect(() => {
-		isAsideOpen = isScreenLarge;
-	});
-
-	const backdropEventHandler = (node: HTMLDivElement) => {
-
-		node.addEventListener('click', toggleAside);
-
-		return {
-			destroy: () => {
-				node.removeEventListener('click', toggleAside);
-			}
-		}
-	}
+	import { navbarLink } from '$lib';
+	import { ThemeToggler, themeInit, Spacer, Sheet, Link, DropdownMenu, List, Button } from '@components';
+	import { goto } from '$app/navigation';
 </script>
 
-<svelte:window bind:innerWidth={windowWidth} />
+<div class="fixed left-0 top-0 z-50 flex w-full flex-shrink-0 flex-grow flex-col items-center justify-center bg-green pb-2 pt-4 text-center text-green-foreground">
+	<a href="/" class="text-4xl font-extrabold italic">Syafa UI</a>
+	<p class="pt-1 text-xs">
+		Visit to the <a href="https://github.com/Amarosuli/syafa-ui" class="font-bold underline">Github</a> to give a star.
+	</p>
 
-<svelte:head>
-	<title>Syafa UI</title>
-</svelte:head>
-
-<div
-	class="{isScreenLarge
-		? 'items-center'
-		: 'items-start pl-6'} fixed left-0 top-0 z-50 flex h-24 w-full flex-shrink-0 flex-grow flex-col justify-center bg-secondary pb-2 pt-4 text-center text-green-foreground">
-	<div class="h-max">
-
-		<a href="/" class="text-4xl font-extrabold italic text-foreground">Syafa UI</a>
-		<p class="pt-1 text-xs text-foreground">
-			Visit to the <Link active href="https://github.com/Amarosuli/syafa-ui">Github</Link> to give a star.
-		</p>
-	</div>
-	<div class="fixed right-4 top-4 h-24 w-fit flex justify-center items-center">
-		<ThemeToggler />
-	</div>
+	<ThemeToggler>Toggle Theme</ThemeToggler>
 </div>
 
-<div class="relative mt-24 flex w-screen justify-start">
-	<button class="fixed bottom-12 right-0 h-16 w-14 rounded-l-3xl bg-secondary text-foreground text-xs md:hidden" onclick={toggleAside}>Toggle</button>
-	{#if isAsideOpen}
-		<aside transition:slide={{ axis: 'x', duration: 150 }} class="fixed overflow-y-scroll left-0 top-0 z-30 mt-24 h-screen w-[300px] bg-secondary px-6 pt-5">
-			{#each navbarLink as { href, title, isDisabled }, index}
-				<div in:fly={{ x: -8, duration: 150, delay: 100 * index }} >
-					<Link {href} underline={true} active={pathname === href} {isDisabled}>{title}</Link>
-				</div>
-			{/each}
-			<div class="h-32"></div>
-		</aside>
-		<div use:backdropEventHandler transition:fade={{ duration: 100 }} class="{isScreenLarge ? 'hidden' : ''} fixed left-0 top-0 z-20 h-screen w-full bg-backdround/40 backdrop-blur-sm"></div>
-	{/if}
+<div class="relative flex w-full flex-col items-center justify-center pb-6 pt-36 font-sans transition-colors duration-500 ease-in">
+	<Sheet.Root>
+		<Sheet.Trigger let:sheet>
+			<div class="fixed bottom-10 right-0 z-50 sm:hidden">
+				<Button on:click={sheet.toggle} variant="ghost">Menu</Button>
+			</div>
+		</Sheet.Trigger>
+		<Sheet.Content side="left">
+			<Sheet.Header>
+				<Sheet.Title>Syafa UI</Sheet.Title>
+				<Sheet.Description>Simple User Interface for your projects.</Sheet.Description>
+			</Sheet.Header>
+			<div class="flex h-full w-full flex-col items-start overflow-auto">
+				<Button
+					on:click={() => goto('/example')}
+					class="flex w-full items-center justify-start border-b p-2 text-2xs text-secondary-foreground first:border-t hover:bg-secondary {`${$page.url.pathname === '/example' && 'bg-secondary'}`}"
+					>Example</Button>
+				{#each navbarLink as { href, title }}
+					<Button
+						on:click={() => goto(href)}
+						class="flex w-full items-center justify-start border-b p-2 text-2xs text-secondary-foreground first:border-t hover:bg-secondary {`${$page.url.pathname === href && 'bg-secondary'}`}"
+						>{title}</Button>
+				{/each}
+			</div>
+			<ThemeToggler>Toggle Theme</ThemeToggler>
+			<Sheet.Footer>
+				<Sheet.Close>close button</Sheet.Close>
+			</Sheet.Footer>
+		</Sheet.Content>
+	</Sheet.Root>
 
-	<main class="dark:dark container mx-4 mt-4 max-w-full rounded-lg bg-background p-6 text-foreground shadow md:ml-[316px]">
-		{@render children()}
-	</main>
+	<div class="relative flex w-full justify-start">
+		<section class="fixed hidden h-full w-48 max-w-lg flex-col flex-nowrap items-start overflow-auto border-r border-slate-300/70 p-4 sm:flex">
+			<Link href={'/example'} active={$page.route.id === '/example'} classes="!text-slate-700">Example</Link>
+			{#each navbarLink as { href, title }}
+				<Link {href} active={$page.route.id === href} classes="!text-slate-700">{title}</Link>
+			{/each}
+		</section>
+		<!-- blank area as background list menu -->
+		<section class="flex w-max sm:w-48 sm:flex-shrink-0"></section>
+		<!-- main wrapper for content -->
+		<section class="dark:dark container mx-5 mt-5 max-w-5xl flex-grow rounded-lg bg-background p-6 text-foreground shadow sm:mx-12 sm:mt-12 lg:flex-shrink-0">
+			<slot />
+		</section>
+		<section class="dark:dark mx-5 mt-5 hidden h-fit w-full flex-shrink rounded-lg bg-background p-6 text-foreground shadow sm:-ml-4 sm:mr-8 sm:mt-12 xl:flex">
+			<div class="flex flex-col">
+				<h1 class="font-bold">Docs</h1>
+				<p># Under Construction #</p>
+			</div>
+		</section>
+	</div>
 </div>

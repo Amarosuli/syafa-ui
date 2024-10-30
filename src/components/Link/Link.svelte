@@ -1,39 +1,16 @@
 <!-- 
    @component
 
-   ### Link - Link is the component for handling navigation.
-   Usage
-      ```
+   ### Link
+      Link is just like an anchor tag element
+   ### Usage
       <Link href="/"> Home </Link>
-      ```
  -->
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-
-	interface LinkProps {
-		children: Snippet<[]>;
-		href?: string;
-		underline?: boolean;
-		classes?: string;
-		isDisabled?: boolean;
-		active?: boolean;
-	}
-
-	let { children, href = '/', underline = false, classes, isDisabled = false, active = false }: LinkProps = $props();
+	export let href: string = '/';
+	export let underline: boolean = true;
+	export let classes: string = '';
+	export let active: boolean = false;
 </script>
 
-<a
-	{href}
-	class="{classes}
-      {isDisabled ? 'disabled pointer-events-none' : ''}
-      {underline ? 'underline-offset-2 hover:underline' : ''}
-      {active ? 'underline underline-offset-2' : ''}
-      ">
-	{@render children()}
-</a>
-
-<style lang="postcss">
-	a {
-		@apply w-fit select-none overflow-hidden whitespace-nowrap text-xs text-primary transition-all ease-out hover:text-primary/50 xl:text-sm;
-	}
-</style>
+<a {href} class="link {classes}" class:underline_hover={underline} class:underline_active={active} {...$$restProps}><slot /></a>

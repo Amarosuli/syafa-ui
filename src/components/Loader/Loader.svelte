@@ -7,7 +7,7 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 
-	let { text = '' }: { text: string } = $props();
+	export let text: String = '';
 </script>
 
 <div class="flex items-center justify-center gap-2">
